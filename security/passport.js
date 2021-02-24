@@ -18,6 +18,11 @@ module.exports = (app, passport) => {
       if (req.body.password !== user.password) {
         return done(null, false, { message: 'Incorrect password.' });
       }
+
+      console.log('user value', user);
+      // delete password property
+      delete user._doc.password;
+      console.log('user value 2', user);
       return done(null, user);
     });
   }

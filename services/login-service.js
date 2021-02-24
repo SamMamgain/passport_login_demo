@@ -1,9 +1,16 @@
-// constrollers
+// controllers
 const loginController = require('../controller/login-controller');
 
 exports.login = (req, res) => {
 
-  // send logged-in user details
-  res.status(200).send(req.user);
+  const opts = {
+    user: req.user
+  }
+
+  loginController.login(opts, (err, result) => {
+    if (err) return res.status(500).send(err);
+
+    res.status(200).send(result);
+  });
 
 }
