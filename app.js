@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-  secret: "cats",
+  secret: "thisisthesecretkey",
   resave: false,
   saveUninitialized: false,
 }));

@@ -19,10 +19,8 @@ module.exports = (app, passport) => {
         return done(null, false, { message: 'Incorrect password.' });
       }
 
-      console.log('user value', user);
       // delete password property
       delete user._doc.password;
-      console.log('user value 2', user);
       return done(null, user);
     });
   }
